@@ -10,4 +10,10 @@ public interface LaptopService {
     ResponseEntity<Laptop> getById(Long id);
 
     ResponseEntity<Page<Laptop>> getAll(Pageable pageable);
+
+    ResponseEntity<String> create(Laptop laptop);
+
+    ResponseEntity<String> update(Long id, Laptop laptop);
+
+    ResponseEntity<String> delete(Long id);
 }

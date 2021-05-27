@@ -27,5 +27,18 @@ public class LaptopController {
         return laptopService.getAll(pageable);
     }
 
+    @PostMapping
+    public ResponseEntity<String> create(@RequestBody Laptop laptop) {
+        return laptopService.create(laptop);
+    }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<String> update(@PathVariable Long id, @RequestBody Laptop laptop) {
+        return laptopService.update(id, laptop);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> delete(@PathVariable Long id) {
+        return laptopService.delete(id);
+    }
 }

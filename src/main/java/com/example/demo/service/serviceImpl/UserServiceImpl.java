@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public ResponseEntity<String> updateUser(Long id, User rUser) {
         User user = userRepository.findById(id).orElseThrow(()
-                -> new IllegalArgumentException("User with " + id + " exist"));
+                -> new IllegalArgumentException("User with " + id + " not exist"));
         rUser.setId(user.getId());
         userRepository.save(rUser);
         return ResponseEntity.ok("User updated");
@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public ResponseEntity<String> deleteUser(Long id) {
         User user = userRepository.findById(id).orElseThrow(()
-                -> new IllegalArgumentException("User with " + id + " exist"));
+                -> new IllegalArgumentException("User with " + id + " not exist"));
         userRepository.delete(user);
         return ResponseEntity.ok("User deleted");
     }
